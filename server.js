@@ -36,6 +36,7 @@ app.post('/api/notes', (req, res)=>{
       return
     }
   var value = JSON.parse(data)
+  req.body.id = uuid()
   value.push(req.body)
   
   fs.writeFile('./db/db.json', JSON.stringify(value),(err)=>{
