@@ -5,7 +5,7 @@ const uuid = require('./helpers/fsUtils');
 const fs = require('fs')
 
 
-const PORT = process.env.port || 3001;
+const PORT = process.env.port ;
 const app = express();
 
 app.use(express.json());
@@ -54,6 +54,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, './public/index.html'));
 });
 
-app.listen(PORT, () =>
+app.listen(PORT || 3001, () =>
   console.log(`App listening at http://localhost:${PORT}`)
 );
